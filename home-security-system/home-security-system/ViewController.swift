@@ -90,8 +90,10 @@ extension ViewController: UITableViewDataSource {
         return sensors.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("here")
         let sensor = Sensor(name: sensors[indexPath.row].value(forKey: "name") as! String, ip: sensors[indexPath.row].value(forKey: "ip") as! String)
+        print(sensor.description)
         delegate?.passData(name: sensor.name, ip: sensor.ip)
         _ = self.navigationController?.popViewController(animated: true)
     }
